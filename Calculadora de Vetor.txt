@@ -1,0 +1,149 @@
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+void main ()
+{
+        novo:
+        float val1,val2,res, flag=0;
+        int vet1[5], vet2[5], vetSoma[5],y, x;
+        char simb,tecla;
+        _setcursortype(_NOCURSOR);
+        textbackground(WHITE);
+        textcolor(BLACK);
+        clrscr();
+        gotoxy(10,5);
+        cprintf("Calculadora de Vetores");
+        for(x=0; x<5; x++)
+        {
+              gotoxy(10,7+x);
+              cprintf("Digite o valor do vet1[%d]:",x);
+              cscanf("%d",&vet1[x]);
+        }
+        Sleep(3000);
+        getch();
+        clrscr();
+        for(x=0; x<5; x++)
+        {
+              gotoxy(10,9+x);
+              cprintf("Digite o valor do vet2[%d]:",x);
+              cscanf("%d",&vet2[x]);
+        }
+        Sleep(3000);
+        getch();
+        clrscr();
+        textbackground(WHITE);
+        textcolor(BLACK);
+        gotoxy(10,11);
+        cprintf("Digite a opera\x87\xC6o:");
+        gotoxy(10,12);
+        cprintf("Se deseja somar '+'");
+        gotoxy(10,13);
+        cprintf("Se deseja subtrair '-'");
+        gotoxy(10,14);
+        cprintf("Se deseja multiplicar 'x'");
+        gotoxy(10,15);
+        cprintf("Se deseja dividir '/'");
+        gotoxy(10,16);
+        cscanf("%s",&simb);
+        textcolor(2+128);
+        switch(simb)
+        {
+                case'+':for(x=0; x<5; x++)
+                        {
+                                vetSoma[x]=vet1[x]+vet2[x];
+                                gotoxy(10,18+x);
+                                cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                        }
+                        getch();
+                        break;
+                case'x':for(x=0; x<5; x++)
+                        {
+                                vetSoma[x]=vet1[x]*vet2[x];
+                                gotoxy(10,18+x);
+                                cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                        }
+                        getch();
+                        break;
+                case'X':for(x=0; x<5; x++)
+                        {
+                                vetSoma[x]=vet1[x]*vet2[x];
+                                gotoxy(10,18+x);
+                                cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                        }
+                        getch();
+                        break;
+                case'*':for(x=0; x<5; x++)
+                        {
+                                vetSoma[x]=vet1[x]*vet2[x];
+                                gotoxy(10,18+x);
+                                cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                        }
+                        getch();
+                        break;
+                case'-':for(x=0; x<5; x++)
+                        {
+                                vetSoma[x]=vet1[x]-vet2[x];
+                                gotoxy(10,18+x);
+                                cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                        }
+                        getch();
+                        break;
+                case'/':for(y=0;y<5;y++)
+                        {
+                                if(vet2[y]==0)
+                                {
+                                        gotoxy(10,18);
+                                        cprintf("N\xC6o \x82 possivel dividir por zero.");
+                                }
+                                else
+                                {
+                                        flag++;
+                                }
+                        }
+                        if(flag==5)
+                        {
+                                for(x=0; x<5; x++)
+                                {
+                                        vetSoma[x]=vet1[x]/vet2[x];
+                                        gotoxy(10,18+x);
+                                        cprintf("vetSoma[%d]:%d\n",x,vetSoma[x]);
+                                }
+                        }
+
+                        getch();
+                        break;
+                default:
+                        clrscr();
+                        gotoxy(10,18);
+                        cprintf("Voc\x88 digitou um simbolo incorreto\x21\x21");
+                        getch();
+                        break;
+        }
+ getch();
+        textcolor(BLACK);
+        textbackground(WHITE);
+        clrscr();
+        gotoxy(10,12);
+        cprintf("Deseja continuar?");
+        gotoxy(10,13);
+        cprintf("Se sim digite (S):");
+        gotoxy(10,14);
+        cprintf("Se n\xC6o digite qualquer outra tecla.");
+        tecla=getch();
+        if(tecla=='s' || tecla=='S')
+        {
+                goto novo;
+        }
+        else
+        {
+                textbackground(WHITE);
+                textcolor(BLACK);
+                clrscr();
+                gotoxy(10,12);
+                cprintf("Obrigado por usar um software da sala 1MA.");
+                getch();
+                exit(1);
+        }
+        getch();
+}

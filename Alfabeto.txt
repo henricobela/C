@@ -1,0 +1,50 @@
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+        char simb;
+        clrscr();
+	textcolor(BLACK);
+        textbackground(WHITE);
+        gotoxy(25,8);
+        cprintf("Digite o caracter - ");
+        scanf("%s",&simb);
+        gotoxy(30,13);
+        if((simb>=65 && simb<=90) || (simb>=97 && simb<=122))
+        {
+                switch(simb)
+                {
+                        case'a':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'e':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'i':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'o':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'u':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'A':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'E':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'I':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'O':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        case'U':printf("%c \x82 uma Vogal.",simb);
+                                break;
+                        default:clrscr();
+                                gotoxy(35,13);
+                                cprintf("%c \x82 uma Consoante.",simb);
+                                getch();
+                                exit(1);
+                }
+        }
+        else
+        {
+                cprintf("BAKA isso n\xC6o \x82 uma letra.");
+        }
+        getch();
+}

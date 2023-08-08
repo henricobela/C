@@ -1,0 +1,54 @@
+#include<conio.h>
+#include<stdio.h>
+#include<windows.h>
+void main ()
+{
+        int x;
+        _setcursortype(_NOCURSOR);
+        textcolor(BLACK);
+        textbackground(WHITE);
+        clrscr();
+        gotoxy(1,1);
+        cprintf("*");
+        Sleep(115);
+        gotoxy(1,1);
+        cprintf(" ");
+        for(x=1;x<=24;x++)
+        {
+                gotoxy(x*1.66,x+1);
+                cprintf("*");
+                Sleep(50);
+                gotoxy(x*1.66,x+1);
+                cprintf(" ");
+        }
+        for (x=1;x<=24;x++)
+        {
+                gotoxy(41+x*1.66,25-x);
+                cprintf("*");
+                Sleep(50);
+                gotoxy(41+x*1.66,25-x);
+                cprintf(" ");
+        }
+        gotoxy(1,25);
+        cprintf("*");
+        Sleep(50);
+        gotoxy(1,25);
+        cprintf(" ");
+        for (x=1;x<=24;x++)
+        {
+                gotoxy(x*1.66,25-x);
+                cprintf("*");
+                Sleep(50);
+                gotoxy(x*1.66,25-x);
+                cprintf(" ");
+        }
+        for(x=1;x<=24;x++)
+        {
+                gotoxy(41+x*1.66,x+1);
+                cprintf("*");
+                Sleep(50);
+                gotoxy(41+x*1.66,x+1);
+                cprintf(" ");
+        }
+        getch();
+}

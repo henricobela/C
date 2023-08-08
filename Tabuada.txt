@@ -1,0 +1,35 @@
+#include<conio.h>
+#include<stdio.h>
+#include<windows.h>
+void main()
+{
+        int x;
+        textcolor(BLACK);
+        textbackground(WHITE);
+        clrscr();
+        for(x=1;x<=10;x++)
+        {
+                gotoxy(1,x);
+                cprintf("01x%02d=%02d",x,x*1);
+                gotoxy(11,x);
+                cprintf("02x%02d=%02d",x,x*2);
+                gotoxy(21,x);
+                cprintf("03x%02d=%02d",x,x*3);
+                gotoxy(31,x);
+                cprintf("04x%02d=%02d",x,x*4);
+                gotoxy(41,x);
+                cprintf("05x%02d=%02d",x,x*5);
+                gotoxy(1,x+12);
+                cprintf("06x%02d=%02d",x,x*6);
+                gotoxy(11,x+12);
+                cprintf("07x%02d=%02d",x,x*7);
+                gotoxy(21,x+12);
+                cprintf("08x%02d=%02d",x,x*8);
+                gotoxy(31,x+12);
+                cprintf("09x%02d=%02d",x,x*9);
+                gotoxy(41,x+12);
+                cprintf("10x%02d=%02d",x,x*10);
+                Sleep(50);
+        }
+        getch();
+}

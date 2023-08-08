@@ -1,0 +1,68 @@
+#include<conio.h>
+#include<windows.h>
+#include<stdio.h>
+void main()
+{
+        int d,h,m,s;
+        _setcursortype(_NOCURSOR);
+        clrscr();
+        for(;;)
+        {
+                for(d=1;d<=7;d++)
+                {
+                        for(h=0;h<=23;h++)
+                        {
+                                for(m=0;m<=59;m++)
+                                {
+                                        for(s=0;s<=59;s++)
+                                        {
+                                                Sleep(1000);
+                                                if(d==1)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Domingo, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==2)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Segunda feira, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==3)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Terca feira, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==4)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Quarta feira, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==5)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Quinta feira, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==6)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Sexta feira, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                                else if(d==7)
+                                                {
+                                                        gotoxy(30,13);
+                                                        printf("Sabado, %02dh:%02dm:%02ds",h,m,s);
+                                                        printf("                                 ");
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+        getch();
+}

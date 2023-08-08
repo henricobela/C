@@ -1,0 +1,135 @@
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+#define max 6
+void main()
+
+{
+        erro:
+        int i, ord, prim, seg, aux, vet[max], op;
+        int vet1[max], j=0, res=31, ord1=0, prim1=0, seg1=0, aux1=0;
+
+        clrscr();
+        gotoxy(2,2);
+        printf("Digite 6(seis) n\xA3meros de 01 \x85 60:");
+        for(j=0;j<6;j++)
+        {
+                res=res+3;
+                gotoxy(res+3,2);
+                scanf("%d", &vet1[j]);
+        }
+        for(prim1=0;prim1<=4;prim1++)
+        {
+                for(seg1=prim1+1;seg1<=5;seg1++)
+                {
+                        if(vet1[prim1]==vet1[seg1])
+                        {
+                                clrscr();
+                                gotoxy(28,13);
+                                printf("N\xC6o coloque n\xA3meros repetidos!!!");
+                                Sleep(1500);
+                                goto erro;
+                        }
+                        if((vet1[prim1]>60)||(vet1[prim1]<=0))
+                        {
+                                clrscr();
+                                gotoxy(28,13);
+                                printf("Digite n\xA3meros entre 01 e 60!!!");
+                                Sleep(1500);
+                                goto erro;
+                        }
+                        if((vet1[seg1]>60)||(vet1[seg1]<=0))
+                        {
+                                clrscr();
+                                gotoxy(28,13);
+                                printf("Digite n\xA3meros entre 01 e 60!!!");
+                                Sleep(1500);
+                                goto erro;
+                        }
+                        if(vet1[prim1]>vet1[seg1])
+                        {
+                                aux1=vet1[seg1];
+                                vet1[seg1]=vet1[prim1];
+                                vet1[prim1]=aux1;
+                        }
+                }
+        }
+        gotoxy(25,14);
+        printf("N\xA3meros Escolhidos:");
+        gotoxy(26,14);
+        for(ord1=0;ord1<max; ord1++)
+        {
+                printf("%02d  ", vet1[ord1]);
+        }
+        gotoxy(25,14);
+        printf("\nAperte ENTER para saber o resultado");
+        getch();
+        randomize();
+        for (i=0;i<(max+1);i++)
+        {
+                vet[i]=rand() %61;
+        }
+        for (i=0;i<(max+1);i++)
+        {
+                for(;;)
+                {
+                        if(vet[i]==0)
+                        {
+                                vet[i]=rand() %61;
+                        }
+                        break;
+                }
+        }
+        for(prim=0;prim<=4;prim++)
+        {
+                for(seg=prim+1;seg<=5;seg++)
+                {
+                        if(vet[prim]==vet[seg])
+                        {
+                                vet[seg]=vet[prim]+1;
+                        }
+                        if(vet[prim]>vet[seg])
+                        {
+                                aux=vet[seg];
+                                vet[seg]=vet[prim];
+                                vet[prim]=aux;
+                        }
+                }
+        }
+        gotoxy(25,14);
+        printf("Resultado:");
+        gotoxy(25,14);
+        printf("                                                  ");
+        gotoxy(30,15);
+        for(ord=0;ord<max; ord++)
+        {
+                printf("%02d  ", vet[ord]);
+        }
+        getch();
+        erro1:
+        clrscr();
+        gotoxy(20,15);
+        printf("Deseja jogar mais uma vez [S=sim N=nao]?");
+        op=getch();
+        switch(op)
+        {
+                case 's':
+                case 'S':
+                        goto erro;
+
+                case 'n':
+                case 'N':
+                        clrscr();
+                        gotoxy(15,13);
+                        printf("Obrigado por gastar seu dinheiro nas loterias da CAIXA");
+                        Sleep(2000);
+                        exit(1);
+                default:
+                        clrscr();
+                        gotoxy(35,13);
+                        printf("Digite S ou N!!!");
+                        Sleep(1500);
+                        goto erro1;
+        }
+}

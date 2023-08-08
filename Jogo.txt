@@ -1,0 +1,512 @@
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+#include<stdlib.h>
+void main()
+{
+	int tecla=0,move=40,alfa,vida=3,inimigo=0,x,w,y,i,j,tela[80][25], pontos=0;
+	_setcursortype(_NOCURSOR);
+        	textcolor(BLACK+128);
+        	textbackground(WHITE+128);
+        	clrscr();
+       	textcolor(RED+128);
+        	gotoxy(1,25);cprintf("pontos %d",pontos);
+        	gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+        	gotoxy(60,25);cprintf("vidas %02d",vida);
+        	textcolor(BLACK+128);
+	gotoxy(move,24);cprintf("\xCA");
+	for(i=0;i<=79;i++)
+	{
+		for(j=0;j<=24;j++)
+		{
+			tela[i][j]=0;
+		}
+	}
+        	while(pontos<5)
+                {
+                		if(vida<0)
+                		{
+                        		clrscr();
+                        		gotoxy(40,12);cprintf("Game Over");
+                        		getch();
+                        		Sleep(3000);
+                        		exit(1);
+                		}
+		if(tecla==27)
+		{
+			exit(1);
+		}
+		if(!kbhit())
+		{
+                			textcolor(BLACK+128);
+                        		randomize();
+			x=(rand()%78)+1;
+			y=(rand()%22)+1;
+                        		if(alfa != x)
+                        		{
+                                			tela[x][y]=1;
+			        	gotoxy(x,y);cprintf("%c",2);
+			        	Sleep(1);
+                                			inimigo++;
+                               			if(inimigo>10)
+                                			{
+                                        			inimigo=0;
+                                        			vida--;
+                                        			Beep(900,10);
+                                			}
+                        		}
+                        		alfa=x;
+		}
+                		if(kbhit())
+		{
+			tecla=getch();
+                        		gotoxy(move,24);cprintf(" ");
+                        		if(tecla==77)
+			{
+				if(move<79)
+                                			{
+                                        			move++;
+                                			}
+                        		}
+                        		if(tecla==75)
+			{
+                               			 if(move>1)
+                                			{
+				        move--;
+                                			}
+                        		}
+                        		textcolor(BLACK+128);
+                        		gotoxy(move,24);cprintf("\xCA");
+                        		if(tecla==32)
+		       	{
+                                			Beep(2000,10);
+                                			for(w=23;w>0;w--)
+				{
+                                        			textcolor(BLUE+128);
+                                        			gotoxy(move,w);cprintf("^");
+                                        			Sleep(10);
+                                        			gotoxy(move,w);cprintf(" ");
+				        	if(tela[move][w]==1)
+				        	{
+                                                				Beep(1000,10);
+					        	pontos++;
+                                                				inimigo--;
+					        	tela[move][w]=0;
+                                                				textcolor(RED+128);
+                                                				gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                                				gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                                                				break;
+				        	}
+                                        			textcolor(RED+128);
+				        	gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                			}
+                        		}
+                		}
+        		textcolor(RED+128);
+        		gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+        		gotoxy(60,25);cprintf("vidas %02d",vida);
+       	}
+	clrscr();
+	gotoxy(40,12);
+	cprintf("Segunda fase");
+	getch();
+	Sleep(1000);
+	clrscr();
+	inimigo=0;
+	vida=vida+1;
+	for(i=0;i<=79;i++)
+	{
+		for(j=0;j<=24;j++)
+		{
+			tela[i][j]=0;
+		}
+	}
+
+	while(pontos<10)
+        	{
+                		if(vida<0)
+                		{
+                        		clrscr();
+                        		gotoxy(40,12);cprintf("Game Over");
+                        		getch();
+                        		Sleep(3000);
+                        		exit(1);
+                		}
+		if(tecla==27)
+		{
+			exit(1);
+		}
+		if(!kbhit())
+		{
+                			textcolor(BLACK+128);
+                        		randomize();
+			x=(rand()%78)+1;
+			y=(rand()%22)+1;
+                        		if(alfa != x)
+                        		{
+                                			tela[x][y]=1;
+			        	gotoxy(x,y);cprintf("%c",145);
+			        	Sleep(1);
+                                			inimigo++;
+                               			if(inimigo>5)
+                                			{
+                                        			inimigo=0;
+                                        			vida--;
+                                        			Beep(900,10);
+                                			}
+                        		}
+                        		alfa=x;
+		}
+                		if(kbhit())
+		{
+			tecla=getch();
+                        		gotoxy(move,24);cprintf(" ");
+                        		if(tecla==77)
+			{
+				if(move<79)
+                                			{
+                                        			move++;
+                                			}
+                        		}
+                        		if(tecla==75)
+			{
+                               			 if(move>1)
+                                			{
+				        move--;
+                                			}
+                        		}
+                        		textcolor(BLACK+128);
+                        		gotoxy(move,24);cprintf("\xCA");
+                        		if(tecla==32)
+		       	{
+                                			Beep(2000,10);
+                                			for(w=23;w>0;w--)
+				{
+                                        			textcolor(BLUE+128);
+                                        			gotoxy(move,w);cprintf("^");
+                                        			Sleep(10);
+                                        			gotoxy(move,w);cprintf(" ");
+				        	if(tela[move][w]==1)
+				        	{
+                                                				Beep(1000,10);
+					        	pontos++;
+                                                				inimigo--;
+					        	tela[move][w]=0;
+                                                				textcolor(RED+128);
+                                                				gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                                				gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                                                				break;
+				        	}
+                                        			textcolor(RED+128);
+				        	gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                			}
+                        		}
+                		}
+        		textcolor(RED+128);
+        		gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+        		gotoxy(60,25);cprintf("vidas %02d",vida);
+       	}
+        clrscr();
+	gotoxy(40,12);
+	cprintf("Terceira fase");
+	getch();
+	Sleep(1000);
+	clrscr();
+	inimigo=0;
+	vida=vida+1;
+	for(i=0;i<=79;i++)
+	{
+		for(j=0;j<=24;j++)
+		{
+			tela[i][j]=0;
+		}
+	}
+
+	while(pontos<15)
+        	{
+                		if(vida<0)
+                		{
+                        		clrscr();
+                        		gotoxy(40,12);cprintf("Game Over");
+                        		getch();
+                        		Sleep(3000);
+                        		exit(1);
+                		}
+		if(tecla==27)
+		{
+			exit(1);
+		}
+		if(!kbhit())
+		{
+                			textcolor(BLACK+128);
+                        		randomize();
+			x=(rand()%78)+1;
+			y=(rand()%22)+1;
+                        		if(alfa != x)
+                        		{
+                                			tela[x][y]=1;
+			        	gotoxy(x,y);cprintf("%c",190);
+			        	Sleep(1);
+                                			inimigo++;
+                               			if(inimigo>5)
+                                			{
+                                        			inimigo=0;
+                                        			vida--;
+                                        			Beep(900,10);
+                                			}
+                        		}
+                        		alfa=x;
+		}
+                		if(kbhit())
+		{
+			tecla=getch();
+                        		gotoxy(move,24);cprintf(" ");
+                        		if(tecla==77)
+			{
+				if(move<79)
+                                			{
+                                        			move++;
+                                			}
+                        		}
+                        		if(tecla==75)
+			{
+                               			 if(move>1)
+                                			{
+				        move--;
+                                			}
+                        		}
+                        		textcolor(BLACK+128);
+                        		gotoxy(move,24);cprintf("\xCA");
+                        		if(tecla==32)
+		       	{
+                                			Beep(2000,10);
+                                			for(w=23;w>0;w--)
+				{
+                                        			textcolor(BLUE+128);
+                                        			gotoxy(move,w);cprintf("^");
+                                        			Sleep(10);
+                                        			gotoxy(move,w);cprintf(" ");
+				        	if(tela[move][w]==1)
+				        	{
+                                                				Beep(1000,10);
+					        	pontos++;
+                                                				inimigo--;
+					        	tela[move][w]=0;
+                                                				textcolor(RED+128);
+                                                				gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                                				gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                                                				break;
+				        	}
+                                        			textcolor(RED+128);
+				        	gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                			}
+                        		}
+                		}
+        		textcolor(RED+128);
+        		gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+        		gotoxy(60,25);cprintf("vidas %02d",vida);
+       	}
+        clrscr();
+	gotoxy(40,12);
+	cprintf("Quarta fase");
+	getch();
+	Sleep(1000);
+	clrscr();
+	inimigo=0;
+	vida=vida+1;
+	for(i=0;i<=79;i++)
+	{
+		for(j=0;j<=24;j++)
+		{
+			tela[i][j]=0;
+		}
+	}
+
+	while(pontos<20)
+        	{
+                		if(vida<0)
+                		{
+                        		clrscr();
+                        		gotoxy(40,12);cprintf("Game Over");
+                        		getch();
+                        		Sleep(3000);
+                        		exit(1);
+                		}
+		if(tecla==27)
+		{
+			exit(1);
+		}
+		if(!kbhit())
+		{
+                			textcolor(BLACK+128);
+                        		randomize();
+			x=(rand()%78)+1;
+			y=(rand()%22)+1;
+                        		if(alfa != x)
+                        		{
+                                			tela[x][y]=1;
+			        	gotoxy(x,y);cprintf("%c",207);
+			        	Sleep(1);
+                                			inimigo++;
+                               			if(inimigo>4)
+                                			{
+                                        			inimigo=0;
+                                        			vida--;
+                                        			Beep(900,10);
+                                			}
+                        		}
+                        		alfa=x;
+		}
+                		if(kbhit())
+		{
+			tecla=getch();
+                        		gotoxy(move,24);cprintf(" ");
+                        		if(tecla==77)
+			{
+				if(move<79)
+                                			{
+                                        			move++;
+                                			}
+                        		}
+                        		if(tecla==75)
+			{
+                               			 if(move>1)
+                                			{
+				        move--;
+                                			}
+                        		}
+                        		textcolor(BLACK+128);
+                        		gotoxy(move,24);cprintf("\xCA");
+                        		if(tecla==32)
+		       	{
+                                			Beep(2000,10);
+                                			for(w=23;w>0;w--)
+				{
+                                        			textcolor(BLUE+128);
+                                        			gotoxy(move,w);cprintf("^");
+                                        			Sleep(10);
+                                        			gotoxy(move,w);cprintf(" ");
+				        	if(tela[move][w]==1)
+				        	{
+                                                				Beep(1000,10);
+					        	pontos++;
+                                                				inimigo--;
+					        	tela[move][w]=0;
+                                                				textcolor(RED+128);
+                                                				gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                                				gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                                                				break;
+				        	}
+                                        			textcolor(RED+128);
+				        	gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                			}
+                        		}
+                		}
+        		textcolor(RED+128);
+        		gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+        		gotoxy(60,25);cprintf("vidas %02d",vida);
+       	}
+        clrscr();
+	gotoxy(40,12);
+	cprintf("Quinta fase");
+	getch();
+	Sleep(1000);
+	clrscr();
+	inimigo=0;
+	vida=vida+1;
+	for(i=0;i<=79;i++)
+	{
+		for(j=0;j<=24;j++)
+		{
+			tela[i][j]=0;
+		}
+	}
+
+	while(pontos<30)
+        	{
+                		if(vida<0)
+                		{
+                        		clrscr();
+                        		gotoxy(40,12);cprintf("Game Over");
+                        		getch();
+                        		Sleep(3000);
+                        		exit(1);
+                		}
+		if(tecla==27)
+		{
+			exit(1);
+		}
+		if(!kbhit())
+		{
+                			textcolor(BLACK+128);
+                        		randomize();
+			x=(rand()%78)+1;
+			y=(rand()%22)+1;
+                        		if(alfa != x)
+                        		{
+                                			tela[x][y]=1;
+			        	gotoxy(x,y);cprintf("%c",207);
+			        	Sleep(1);
+                                			inimigo++;
+                               			if(inimigo>3)
+                                			{
+                                        			inimigo=0;
+                                        			vida--;
+                                        			Beep(900,10);
+                                			}
+                        		}
+                        		alfa=x;
+		}
+                		if(kbhit())
+		{
+			tecla=getch();
+                        		gotoxy(move,24);cprintf(" ");
+                        		if(tecla==77)
+			{
+				if(move<79)
+                                			{
+                                        			move++;
+                                			}
+                        		}
+                        		if(tecla==75)
+			{
+                               			 if(move>1)
+                                			{
+				        move--;
+                                			}
+                        		}
+                        		textcolor(BLACK+128);
+                        		gotoxy(move,24);cprintf("\xCA");
+                        		if(tecla==32)
+		       	{
+                                			Beep(2000,10);
+                                			for(w=23;w>0;w--)
+				{
+                                        			textcolor(BLUE+128);
+                                        			gotoxy(move,w);cprintf("^");
+                                        			Sleep(10);
+                                        			gotoxy(move,w);cprintf(" ");
+				        	if(tela[move][w]==1)
+				        	{
+                                                				Beep(1000,10);
+					        	pontos++;
+                                                				inimigo--;
+					        	tela[move][w]=0;
+                                                				textcolor(RED+128);
+                                                				gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                                				gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                                                				break;
+				        	}
+                                        			textcolor(RED+128);
+				        	gotoxy(1,25);cprintf("pontos %02d",pontos);
+                                			}
+                        		}
+                		}
+        		textcolor(RED+128);
+        		gotoxy(40,25);cprintf("inimigos %02d",inimigo);
+                        gotoxy(60,25);cprintf("vidas %02d",vida);
+       	}
+        clrscr();
+	gotoxy(40,12);
+        cprintf("!!!VOCE VENCEU!!!");
+}

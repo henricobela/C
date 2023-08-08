@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<windows.h>
+void main()
+{
+        double x,amp;
+        clrscr;
+        for(x=1;x<=80;x++)
+        {
+                amp=12-11*sin((((x*4.5)*M_PI)/180));
+                gotoxy(x,amp);
+                printf("*");
+                Sleep(50);
+                gotoxy(x,amp);
+                printf(" ");
+        }
+        getch();
+}

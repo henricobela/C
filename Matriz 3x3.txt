@@ -1,0 +1,23 @@
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+        clrscr();
+        int mat[3][3];
+        float det;
+        int x,y;
+        printf("Esse programa calcula a determinante de ");
+        printf("uma matriz quadrada de ordem 3.");
+        printf("\n\nEntre com os valores da matriz:\n");
+        for(x=0;x<3;x++)
+        {
+                for(y=0;y<3;y++)
+                {
+                        printf("mat[%d][%d]=",x+1,y+1);
+                        scanf("%d",&mat[x][y]);
+                }
+        }
+        det=((mat[0][0]*mat[1][1]*mat[2][2])+(mat[0][1]*mat[1][2]*mat[2][0])+(mat[0][2]*mat[1][0]*mat[2][1]))-((mat[0][2]*mat[1][1]*mat[2][0])+(mat[0][0]*mat[1][2]*mat[2][1])+(mat[0][1]*mat[1][0]*mat[2][2]));
+        printf("Determinante da matriz=%f\n",det);
+        getch();
+}
